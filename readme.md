@@ -1,6 +1,7 @@
 A Dashboard template using:
-Flask
-Mongodb
-Crossfilter
-Dc
-D3
+Flask (python package)
+Mongodb (python package)
+Crossfilter.js
+Dc.js
+D3.js
+Queue.js
