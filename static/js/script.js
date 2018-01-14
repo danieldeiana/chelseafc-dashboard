@@ -1,4 +1,4 @@
-// Used to print the crossfilter data instances to the console for dubugging
+// Used to print the crossfilter data instances to the console for debugging
 // Snippet nicked from code institute
 function print_filter(filter){
 	var f=eval(filter);
@@ -45,7 +45,7 @@ function makeGraphs(error, seasons_data){
     // Create a crossfilter instance using the data
     var ndx = crossfilter(seasons_data);
 
-    // Create a dimension from the crossfilter instance using the season years spread. eg. 2013-14
+    // Create a dimension from the crossfilter instance using the season year
     var seasonDim = ndx.dimension(function(d){
         return d.season;
     });
@@ -101,8 +101,7 @@ function makeGraphs(error, seasons_data){
     stackedLineGraph
         .width(500).height(200)
         .dimension(seasonDim)
-        .group(divisionBySeason)
-        .stack(gamesLostBySeason)
+        .group(gamesLostBySeason)
         .stack(gamesPlayedBySeason)
         .stack(finishingPositionBySeason)
         .stack(gamesDrawnBySeason)
@@ -112,7 +111,59 @@ function makeGraphs(error, seasons_data){
         .x(d3.scale.linear().domain([earliestSeason, latestSeason]));
 
 
+    // -- TIME IN DIVISION PIE-CHART --
+
+    var divisionDim = ndx.dimension(function(d){
+        return d.division;
+    });
+
+    var divisionMeasure = divisionDim.group().reduceCount();
+
+    var pieChart = dc.pieChart('#time-in-division-piechart');
+    pieChart
+        .dimension(divisionDim)
+        .group(divisionMeasure);
+
+    // -- DATA TABLE --
+
+    var seasonsDataTable = dc.dataTable('#seasons-data-table')
+    
+    seasonsDataTable
+        .dimension(seasonDim)
+        .group(function(d){
+            return d.season;
+        })
+        .columns([
+            function(d){
+                return d.division;
+            },
+            function(d){
+                return d.played;
+            },
+            function(d){
+                return d.won;
+            },
+            function(d){
+                return d.drew;
+            },
+            function(d){
+                return d.lost;
+            },
+            function(d){
+                return d.goals_for;
+            },
+            function(d){
+                return d.goals_against;
+            },
+            function(d){
+                return d.finishing_position;
+            },
+            function(d){
+                return d.points;
+            }
+        ]);
+
     // -- RENDER THE CHARTS --
     dc.renderAll();
 
-}; // /makeGraphs
+};
