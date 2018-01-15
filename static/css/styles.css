@@ -1,0 +1,31 @@
+header {
+    color: white;
+    background: #449;
+    padding: 5px 0;
+    margin-bottom: 40px;
+    border-bottom: solid 3px #225;
+}
+
+h1 {
+    font-size: 5rem;
+    margin-left: 20px;
+}
+
+header > p {
+    font-size: 2rem;
+    margin-left: 80px;
+}
+
+th {
+    background: #AAF;
+    border: solid 1px white;
+}
+
+tr {
+    background: #CCF;
+    border: solid 1px white;
+}
+
+tr:first-child {
+    background: #AAF;
+}

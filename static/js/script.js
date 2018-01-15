@@ -99,7 +99,7 @@ function makeGraphs(error, seasons_data){
     var stackedLineGraph = dc.lineChart('#stacked-line-chart');
 
     stackedLineGraph
-        .width(500).height(200)
+        .width(800).height(300)
         .dimension(seasonDim)
         .group(gamesLostBySeason, 'Lost')
         .stack(gamesPlayedBySeason, 'Played')
@@ -109,7 +109,7 @@ function makeGraphs(error, seasons_data){
         .stack(goalsConcededBySeason, 'Against')
         .stack(pointsBySeason, 'Points')
         .x(d3.scale.linear().domain([earliestSeason, latestSeason]))
-        .legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
+        .legend(dc.legend().x(700).y(10).itemHeight(13).gap(5))
         .yAxisLabel('Value')
         .xAxisLabel('Season');
 
