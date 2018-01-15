@@ -101,14 +101,17 @@ function makeGraphs(error, seasons_data){
     stackedLineGraph
         .width(500).height(200)
         .dimension(seasonDim)
-        .group(gamesLostBySeason)
-        .stack(gamesPlayedBySeason)
-        .stack(finishingPositionBySeason)
-        .stack(gamesDrawnBySeason)
-        .stack(goalsScoredBySeason)
-        .stack(goalsConcededBySeason)
-        .stack(pointsBySeason)
-        .x(d3.scale.linear().domain([earliestSeason, latestSeason]));
+        .group(gamesLostBySeason, 'Lost')
+        .stack(gamesPlayedBySeason, 'Played')
+        .stack(finishingPositionBySeason, 'Finished')
+        .stack(gamesDrawnBySeason, 'Drawn')
+        .stack(goalsScoredBySeason, 'For')
+        .stack(goalsConcededBySeason, 'Against')
+        .stack(pointsBySeason, 'Points')
+        .x(d3.scale.linear().domain([earliestSeason, latestSeason]))
+        .legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
+        .yAxisLabel('Value')
+        .xAxisLabel('Season');
 
 
     // -- TIME IN DIVISION PIE-CHART --
@@ -127,7 +130,7 @@ function makeGraphs(error, seasons_data){
     // -- DATA TABLE --
 
     var seasonsDataTable = dc.dataTable('#seasons-data-table')
-    
+
     seasonsDataTable
         .dimension(seasonDim)
         .group(function(d){
