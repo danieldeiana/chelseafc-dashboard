@@ -1,3 +1,19 @@
+#cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #005;
+    color: white;
+    z-index: 9999;
+    text-align: center;
+}
+
+#cover > h1 {
+    margin-top: 25%;
+}
+
 header {
     color: white;
     background: #449;

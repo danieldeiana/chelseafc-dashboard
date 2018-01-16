@@ -22,6 +22,11 @@ function print_filter(filter){
 "points":48},
 */
 
+// On load snippet taken from https://stackoverflow.com/questions/9550760/hide-page-until-everything-is-loaded-advanced
+$(window).on('load', function(){
+    $("#cover").hide();
+});
+
 queue()
     // -- GETTING THE DATA --
     .defer(d3.json, "/cfcdvdv/seasons")

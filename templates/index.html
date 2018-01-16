@@ -10,6 +10,12 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='css/styles.css')}}">
     </head>
     <body>
+
+        <!-- Taken from: https://stackoverflow.com/questions/9550760/hide-page-until-everything-is-loaded-advanced -->
+        <div id="cover">
+            <h1>Loading...</h1>
+        </div>
+
         <header>
             <h1>CFC Datadash</h1>
             <p>Chelsea FC season data, visualised</p>
@@ -44,6 +50,8 @@
             <p>Data extracted from <a
                     href="https://en.wikipedia.org/wiki/List_of_Chelsea_F.C._seasons">
                         List of Chelsea F.C. seasons</a></p>
+            <script type='text/javascript'
+                    src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
             <script type='text/javascript'
                     src='https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.js'></script>
             <script type='text/javascript'

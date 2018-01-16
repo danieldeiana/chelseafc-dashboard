@@ -4,11 +4,12 @@ An interactive data-dashboard displaying season data for Chelsea FC from their f
 
 ## Technologies used
 * Flask: A micro-framework used for the back-end 
-* Mongodb: A no-SQL data used to store the data
+* Mongodb: A no-SQL database used to store the data
 * Crossfilter.js: To better prepare the data and to make use of it's two-way-binding
-* Dc.js + D3.js: Working together with crossfilter, renders the interactive charts to the browser
+* DC.js + D3.js: Working together with crossfilter, renders the interactive charts to the browser
 * Queue.js: Simplifies asynchronous use of data
 * Bootstrap: Mainly used as a skeleton for the HTML elements
+* JQuery: To cover the page until loaded
 
 ## Inspiration
 The code for this project has in part been inspired by the 
