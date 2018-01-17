@@ -22,20 +22,29 @@
 header {
     color: white;
     background: #449;
-    padding: 5px 0;
+    padding: 1px 0;
     margin-bottom: 40px;
-    border-bottom: solid 3px #225;
+    border-bottom: solid 5px #225;
 }
 
 h1 {
     font-size: 5rem;
     margin-left: 20px;
+    font-family: 'Bangers', cursive;
+    text-shadow: 2px 2px #000;
 }
 
 header > p {
     font-size: 2rem;
     margin-left: 80px;
+    font-family: 'Bangers', cursive;
+    text-shadow: 2px 2px #000;
 }
+
+.container {
+    font-family: 'Arvo', serif;
+}
+
 
 footer {
     color: white;
@@ -71,8 +80,9 @@ svg {
 }
 
 th {
-    background: #AAF;
+    background: #338;
     border: solid 1px white;
+    color: white;
 }
 
 tr {
@@ -81,5 +91,6 @@ tr {
 }
 
 tr:first-child {
-    background: #AAF;
+    background: #338;
+    color: white;
 }

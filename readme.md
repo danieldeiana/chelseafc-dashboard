@@ -1,6 +1,6 @@
 # CFC Datadash
 ## Overview
-An interactive data-dashboard displaying season data for Chelsea FC from their foundation in 1905 t0 2015.
+An interactive data-dashboard displaying season data for Chelsea FC from their foundation in 1905 to 2015.
 
 ## Technologies used
 * Flask: A micro-framework used for the back-end 

@@ -148,12 +148,15 @@ function makeGraphs(error, seasons_data){
     // The chart
     var pieChart = dc.pieChart('#time-in-division-piechart');
 
+    pieChartColours = d3.scale.linear().domain([1,2]).range(['#338', '#88D'])
+
     pieChart
         // Sized relative to the line-graph
         .width(lineGraphWidth * 0.3)
         .height(lineGraphWidth * 0.3)
         .dimension(divisionDim)
-        .group(divisionMeasure);
+        .group(divisionMeasure)
+        .colors(pieChartColours);
 
     // -- DATA TABLE --
 
@@ -164,7 +167,11 @@ function makeGraphs(error, seasons_data){
         .group(function(d){
             return d.season;
         })
+        .size(Infinity)
         .columns([
+            function (d) {
+                return  '';
+            },
             function(d){
                 return d.division;
             },
@@ -196,5 +203,4 @@ function makeGraphs(error, seasons_data){
 
     // -- RENDER THE CHARTS --
     dc.renderAll();
-
-};
+}
