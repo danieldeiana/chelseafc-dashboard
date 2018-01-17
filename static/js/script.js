@@ -66,6 +66,11 @@ function makeGraphs(error, seasons_data){
     });
 
         // Create a group based on the games lost per season
+    var gamesWonBySeason = seasonDim.group().reduceSum(function(d){
+        return d.won;
+    });
+
+        // Create a group based on the games lost per season
     var gamesLostBySeason = seasonDim.group().reduceSum(function(d){
         return d.lost;
     });
@@ -117,12 +122,13 @@ function makeGraphs(error, seasons_data){
         .width(lineGraphWidth)
         .height(lineGraphWidth / 2.5)
         .dimension(seasonDim)
-        .group(gamesLostBySeason, 'Lost')
-        .stack(gamesPlayedBySeason, 'Played')
-        .stack(finishingPositionBySeason, 'Finished')
+        .group(gamesWonBySeason, 'Won')
         .stack(gamesDrawnBySeason, 'Drawn')
+        .stack(gamesLostBySeason, 'Lost')
+        .stack(gamesPlayedBySeason, 'Played')
         .stack(goalsScoredBySeason, 'For')
         .stack(goalsConcededBySeason, 'Against')
+        .stack(finishingPositionBySeason, 'Finished')
         .stack(pointsBySeason, 'Points')
         .x(d3.scale.linear().domain([earliestSeason, latestSeason]))
         .legend(dc.legend().x(lineGraphWidth * 0.8).y(10).itemHeight(lineGraphWidth * 0.01).gap(5))
