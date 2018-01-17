@@ -101,10 +101,21 @@ function makeGraphs(error, seasons_data){
     });
 
     // -- CREATING THE GRAPHS --
+    var windowWidth = $(window).width();
+
     var stackedLineGraph = dc.lineChart('#stacked-line-chart');
 
+    // Size the graph based on the parent element
+    var parentWidth = $('#stacked-line-chart').parent().width();
+    if (windowWidth > 800){
+        var lineGraphWidth = parentWidth * 0.6;
+    } else {
+        var lineGraphWidth = parentWidth * 0.95;
+    };
+
     stackedLineGraph
-        .width(800).height(300)
+        .width(lineGraphWidth)
+        .height(lineGraphWidth / 2.5)
         .dimension(seasonDim)
         .group(gamesLostBySeason, 'Lost')
         .stack(gamesPlayedBySeason, 'Played')
@@ -114,21 +125,27 @@ function makeGraphs(error, seasons_data){
         .stack(goalsConcededBySeason, 'Against')
         .stack(pointsBySeason, 'Points')
         .x(d3.scale.linear().domain([earliestSeason, latestSeason]))
-        .legend(dc.legend().x(700).y(10).itemHeight(13).gap(5))
+        .legend(dc.legend().x(lineGraphWidth * 0.8).y(10).itemHeight(lineGraphWidth * 0.01).gap(5))
         .yAxisLabel('Value')
         .xAxisLabel('Season');
 
 
     // -- TIME IN DIVISION PIE-CHART --
 
+    // Prepare the data
     var divisionDim = ndx.dimension(function(d){
         return d.division;
     });
 
     var divisionMeasure = divisionDim.group().reduceCount();
 
+    // The chart
     var pieChart = dc.pieChart('#time-in-division-piechart');
+
     pieChart
+        // Sized relative to the line-graph
+        .width(lineGraphWidth * 0.3)
+        .height(lineGraphWidth * 0.3)
         .dimension(divisionDim)
         .group(divisionMeasure);
 

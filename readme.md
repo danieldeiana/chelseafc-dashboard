@@ -12,7 +12,7 @@ An interactive data-dashboard displaying season data for Chelsea FC from their f
 * JQuery: To cover the page until loaded
 
 ## Inspiration
-The code for this project has in part been inspired by the 
-[Code Institute School Donations](https://github.com/jamcoy/school_donations).
+The code for this website has in part been inspired by the 
+[Code Institute School Donations](https://github.com/jamcoy/school_donations) project.
 I've mirrored the directories layout somewhat. I also followed the same idea of 
 passing the data from Flask to javascript using a Flask route.
