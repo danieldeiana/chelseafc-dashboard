@@ -1,4 +1,5 @@
 # CFC Datadash
+![Website homepage](homepage.jpg 'Homepage')
 ## Overview
 An interactive data-dashboard displaying season data for Chelsea FC from their foundation in 1905 to 2015.
 
