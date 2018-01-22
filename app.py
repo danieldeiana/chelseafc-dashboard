@@ -44,6 +44,10 @@ def index():
 def seasons():
     return convert_collection_to_json(get_seasons())
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
