@@ -1,11 +1,17 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h2>About</h2>
-    <h3>Overview</h3>
+    <h2>Overview</h2>
     <p>This website visualises Chelsea FC season data from their foundation in 1905 to the 2016 season. The data
-    is pulled from <a href="https://en.wikipedia.org/wiki/List_of_Chelsea_F.C._seasons">List of Chelsea F.C. seasons.</a>
+    is pulled from
+        <a href="https://en.wikipedia.org/wiki/List_of_Chelsea_F.C._seasons">List of Chelsea F.C. seasons.</a>
     </p>
-    <h3>Technology used</h3>
+    <h2>Use</h2>
+    <p>The line-chart shows vital season statistics from Chelsea's foundation in 1905 to 2016.
+    The pie-chart shows the majority of time Chelsea have spent in both the 2nd and 1st flight
+    The 1st flight includes the premier league founded in 1992. The table below shows the data
+    in-line season by season. Hover over the legend on the line-graph to get a better visual
+    indication. Click on segments of the pie-chart to isolate the data in the line-chart and table.</p>
+    <h2>Technology</h2>
     <ul>
         <li>Mongodb. A 'no-sql' database, used to store the data.</li>
         <li>Flask for the backend. Used to pass the data from Mongodb to the JS and to serve the webpage</li>
@@ -15,7 +21,7 @@
         <li>JQuery. To more easily manipulate the dom. Particularly helped with the loading page.</li>
 
     </ul>
-    <h3>Contact</h3>
+    <h2>Contact</h2>
     <p>If you have any queries, you can reach me at danieldeiana84@gmail.com and here is a link to my repository:
     <a href="">CFC Datadash repository</a></p>
 {% endblock %}

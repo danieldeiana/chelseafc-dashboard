@@ -16,9 +16,15 @@
         <div id="cover">
         </div>
 
-        <header>
-            <h1>CFC Datadash</h1>
-            <p>Chelsea FC season data, visualised!</p>
+        <header class="navbar">
+            <div class="navbar-left">
+                <h1>CFC Datadash</h1>
+                <p id="strapline">Chelsea FC season data, visualised!</p>
+            </div>
+            <nav class="navbar navbar-right">
+                <a class="nav-link" href="/">dashboard</a>
+                <a class="nav-link" href="/about">about</a>
+            </nav>
         </header>
         <div class="container">
             {% block content %}
